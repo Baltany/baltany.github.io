@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Balbino Moyano | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Balbino Moyano López</h1>
-    <p>Desarrollador de aplicaciones | Ciberseguridad | Innovación</p>
-    <div class="socials">
-      <a href="https://github.com/Baltany" target="_blank">GitHub</a>
-      <a href="mailto:baltanyml@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/tu-linkedin" target="_blank">LinkedIn</a>
-    </div>
-  </header>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Balbino Moyano | Portfolio</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <header>
+            <h1>Balbino Moyano López</h1>
+            <p>Desarrollador de aplicaciones | Ciberseguridad | Innovación</p>
+            <div class="socials">
+                <a href="https://github.com/Baltany" target="_blank">GitHub</a>
+                <a href="mailto:baltanyml@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/balbino-moyano-l%C3%B3pez-9113bb219/" target="_blank">LinkedIn</a>
+            </div>
+        </header>
 
-  <section class="about">
-    <h2>Sobre mí</h2>
-    <p>Soy técnico en Desarrollo de Aplicaciones con experiencia en programación, ciberseguridad y resolución de incidencias. Me apasiona aprender, innovar y trabajar con tecnologías como Java, Spring, Docker, React, Python, y más.</p>
-  </section>
+        <section class="about">
+            <h2>Sobre mí</h2>
+            <p>Soy técnico en Desarrollo de Aplicaciones con experiencia en programación,
+                ciberseguridad y resolución de incidencias. Me apasiona aprender, innovar y
+                trabajar con tecnologías como Java, Spring, Docker, React, Python, y más.</p>
+        </section>
 
-  <section class="projects">
-    <h2>📁 Proyectos en GitHub</h2>
-    <div id="repos"></div>
-  </section>
+        <section class="projects">
+            <h2>📁 Proyectos en GitHub</h2>
+            <div id="repos"></div>
+        </section>
 
-  <section class="cv">
-    <h2>📄 Currículum Vitae</h2>
-    <a href="cv.pdf" target="_blank">Descargar CV en PDF</a>
-  </section>
+        <section class="cv">
+            <h2>📄 Currículum Vitae</h2>
+            <a href="cv.pdf" target="_blank">Descargar CV en PDF</a>
+        </section>
 
-  <footer>
-    <p>© 2025 Balbino Moyano López</p>
-  </footer>
+        <footer>
+            <p>© 2025 Balbino Moyano López</p>
+        </footer>
 
-  <script>
-    fetch('https://api.github.com/users/Baltany/repos')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.getElementById('repos');
-        data.forEach(repo => {
-          const el = document.createElement('div');
-          el.classList.add('repo');
-          el.innerHTML = `
+        <script>
+            fetch('https://api.github.com/users/Baltany/repos')
+                .then(res => res.json())
+                .then(data => {
+                    const container = document.getElementById('repos');
+                    data.forEach(repo => {
+                        const el = document.createElement('div');
+                        el
+                            .classList
+                            .add('repo');
+                        el.innerHTML = `
             <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
             <p>${repo.description || 'Sin descripción'}</p>
-            <p>★ ${repo.stargazers_count} | 🕒 ${new Date(repo.updated_at).toLocaleDateString()}</p>
-          `;
-          container.appendChild(el);
-        });
-      });
-  </script>
-</body>
+            <p>★ ${repo
+                            .stargazers_count} | 🕒 ${new Date(
+                                repo.updated_at
+                            )
+                            .toLocaleDateString()}</p>`;
+                        container.appendChild(el);
+                    });
+                });
+        </script>
+    </body>
 </html>
